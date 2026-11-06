@@ -24,10 +24,8 @@ import numpy as np
 import pandas as pd
 import plotly.express as px
 import streamlit as st
-import streamlit.components.v1 as components
 from mlxtend.frequent_patterns import apriori, association_rules, fpgrowth
 from mlxtend.preprocessing import TransactionEncoder
-from pyvis.network import Network
 
 # ==============================================================================
 # CẤU HÌNH TRANG & ĐƯỜNG DẪN DỰ ÁN
@@ -645,62 +643,6 @@ def load_app3_data() -> Dict[str, object]:
 
 
 # ==============================================================================
-# HÀM HỖ TRỢ VẼ ĐỒ THỊ MẠNG LƯỚI PYVIS (TAB 3)
-# ==============================================================================
-def render_pyvis_network(rules_df: pd.DataFrame, labels: Dict[str, str], max_rules: int = 25) -> str:
-    net = Network(height="460px", width="100%", directed=True, bgcolor="#ffffff", font_color="#1e293b")
-    net.barnes_hut(gravity=-3500, central_gravity=0.3, spring_length=140, spring_strength=0.04)
-
-    subset = rules_df.head(max_rules)
-    added_nodes = set()
-
-    for _, row in subset.iterrows():
-        ants = sorted(row["antecedents"])
-        cons = sorted(row["consequents"])
-        ant_id = " + ".join(ants)
-        con_id = " + ".join(cons)
-
-        ant_label = " + ".join(f"{x}\n({labels.get(x, x)[:22]})" if labels.get(x, x) != x else x for x in ants)
-        con_label = " + ".join(f"{x}\n({labels.get(x, x)[:22]})" if labels.get(x, x) != x else x for x in cons)
-
-        if ant_id not in added_nodes:
-            net.add_node(
-                ant_id,
-                label=ant_label,
-                title=" | ".join(labels.get(x, x) for x in ants),
-                color="#4f46e5",
-                size=22,
-            )
-            added_nodes.add(ant_id)
-
-        if con_id not in added_nodes:
-            net.add_node(
-                con_id,
-                label=con_label,
-                title=" | ".join(labels.get(x, x) for x in cons),
-                color="#059669",
-                size=22,
-            )
-            added_nodes.add(con_id)
-
-        conf_val = float(row["confidence"])
-        lift_val = float(row["lift"])
-        sup_val = float(row["support"])
-        edge_title = f"Support: {sup_val:.3f} | Confidence: {conf_val:.1%} | Lift: {lift_val:.2f}"
-        net.add_edge(
-            ant_id,
-            con_id,
-            value=max(1.0, lift_val),
-            title=edge_title,
-            label=f"Lift {lift_val:.1f}",
-            color="#64748b",
-            arrows="to",
-        )
-
-    return net.generate_html()
-
-
-# ==============================================================================
 # GIAO DIỆN CHÍNH: SIDEBAR & 4 TABS
 # ==============================================================================
 def main() -> None:
@@ -1004,43 +946,6 @@ def main() -> None:
                 ar_display["Lift"] = ar_display["lift"].round(3)
                 ar_display = ar_display[["Antecedents (X)", "Consequents (Y)", "Support", "Confidence", "Lift"]]
                 st.dataframe(ar_display, width="stretch", height=360, hide_index=True)
-
-        if not rules_df.empty:
-            st.divider()
-            viz_col1, viz_col2 = st.columns(2)
-
-            with viz_col1:
-                st.subheader("4. Biểu đồ Phân tán 3D (Support - Confidence - Lift)")
-                plot_rules = rules_df.head(150).copy()
-                plot_rules["Luật"] = plot_rules.apply(
-                    lambda r: (
-                        f"{', '.join(sorted(r['antecedents']))} -> {', '.join(sorted(r['consequents']))} "
-                        f"({', '.join(labels.get(x, x)[:20] for x in sorted(r['antecedents']))} -> "
-                        f"{', '.join(labels.get(x, x)[:20] for x in sorted(r['consequents']))})"
-                    ),
-                    axis=1,
-                )
-                fig_3d = px.scatter_3d(
-                    plot_rules,
-                    x="support",
-                    y="confidence",
-                    z="lift",
-                    color="lift",
-                    size="support",
-                    hover_name="Luật",
-                    color_continuous_scale="Viridis",
-                    labels={"support": "Support", "confidence": "Confidence", "lift": "Lift"},
-                )
-                fig_3d.update_layout(height=460, margin=dict(l=0, r=0, t=20, b=0))
-                st.plotly_chart(fig_3d, width="stretch")
-
-            with viz_col2:
-                st.subheader("5. Đồ thị Mạng lưới Liên kết")
-                html_net = render_pyvis_network(rules_df, labels=labels, max_rules=20)
-                if hasattr(st, "iframe"):
-                    st.iframe(html_net, height=470)
-                else:
-                    components.html(html_net, height=470, scrolling=False)
 
     # --------------------------------------------------------------------------
     # TAB 4: CHỈ CHỨA BIỂU ĐỒ VÀ BẢNG SỐ LIỆU BENCHMARK CHI TIẾT
