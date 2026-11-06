@@ -824,7 +824,7 @@ def main() -> None:
     # TAB 2: GIẢI PHẪU FP-TREE (MẶC ĐỊNH VẼ MINI FP-TREE)
     # --------------------------------------------------------------------------
     with tab2:
-        st.subheader("Giải phẫu cấu trúc Cây FP-Tree & Bảng Header Table (F-List)")
+        st.subheader("Cây FP-Tree & Bảng Header Table (F-List)")
 
         fptree_obj = WhiteBoxFPTree(transactions=transactions, min_support_count=min_sup_count)
         header_df = fptree_obj.get_header_dataframe(labels)
