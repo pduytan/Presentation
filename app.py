@@ -835,21 +835,6 @@ def main() -> None:
                 "Hãy giảm thanh trượt min_support ở Sidebar."
             )
         else:
-            raw_occ = fptree_obj.raw_item_occurrences
-            filtered_occ = fptree_obj.filtered_item_occurrences
-            tree_nodes = fptree_obj.num_tree_nodes
-            compression_vs_filtered = (1.0 - tree_nodes / max(1, filtered_occ)) * 100.0
-            compression_vs_raw = (1.0 - tree_nodes / max(1, raw_occ)) * 100.0
-
-            c1, c2, c3, c4 = st.columns(4)
-            c1.metric(
-                "Tổng phần tử trong hồ sơ gốc" if is_clinical else "Tổng phần tử trong giao dịch gốc",
-                f"{raw_occ:,}",
-            )
-            c2.metric("Phần tử sau lọc F-List", f"{filtered_occ:,}")
-            c3.metric("Số nút trên Cây FP-Tree", f"{tree_nodes:,}")
-            c4.metric("Tỷ lệ nén trên FP-Tree", f"{max(0.0, compression_vs_filtered):.1f}%")
-
             col_flist, col_tree = st.columns([1.0, 1.35])
 
             with col_flist:
