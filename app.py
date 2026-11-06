@@ -818,11 +818,7 @@ def main() -> None:
             c1.metric("Tổng phần tử trong giao dịch gốc", f"{raw_occ:,}")
             c2.metric("Phần tử sau lọc F-List", f"{filtered_occ:,}")
             c3.metric("Số nút trên Cây FP-Tree", f"{tree_nodes:,}")
-            c4.metric(
-                "Tỷ lệ nén trên FP-Tree",
-                f"{max(0.0, compression_vs_filtered):.1f}%",
-                delta=f"Giảm {max(0.0, compression_vs_raw):.1f}% so với gốc",
-            )
+            c4.metric("Tỷ lệ nén trên FP-Tree", f"{max(0.0, compression_vs_filtered):.1f}%")
 
             col_flist, col_tree = st.columns([1.0, 1.35])
 
