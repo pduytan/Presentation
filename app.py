@@ -448,6 +448,7 @@ def load_app1_data() -> Dict[str, object]:
         pairs_df = pd.read_csv(basket_csv, dtype=str)
         baskets_series = pairs_df.groupby("InvoiceNo", sort=False)["StockCode"].agg(list)
         transactions = baskets_series.tolist()
+        tx_ids = baskets_series.index.astype(str).tolist()
         sample_invoices = baskets_series.head(200)
         raw_df = pd.DataFrame(
             {
@@ -472,10 +473,12 @@ def load_app1_data() -> Dict[str, object]:
         pairs = d[["InvoiceNo", "StockCode"]].drop_duplicates()
         baskets_series = pairs.groupby("InvoiceNo")["StockCode"].agg(list)
         transactions = baskets_series.tolist()
+        tx_ids = baskets_series.index.astype(str).tolist()
         raw_df = d.head(200)
 
     return {
         "transactions": transactions,
+        "tx_ids": tx_ids,
         "raw_df": raw_df,
         "labels": labels,
         "min_item_support_pre": 0.005,
@@ -544,10 +547,11 @@ def load_app2_data() -> Dict[str, object]:
             ["MILK", "BREAD", "BUTTER"],
         ] * 10
 
+    tx_ids = [f"APP2-TX-{1001 + i}" for i in range(len(transactions))]
     raw_df = pd.DataFrame(
         [
             {
-                "Mã Giao Dịch": f"APP2-TX-{1001 + i}",
+                "Mã Giao Dịch": tx_ids[i],
                 "Số lượng Item": len(items),
                 "Mã Items": ", ".join(items),
                 "Tên hiển thị": " | ".join(labels.get(x, x) for x in items),
@@ -558,6 +562,7 @@ def load_app2_data() -> Dict[str, object]:
 
     return {
         "transactions": transactions,
+        "tx_ids": tx_ids,
         "raw_df": raw_df,
         "labels": labels,
         "min_item_support_pre": 0.0,
@@ -617,6 +622,7 @@ def load_app3_data() -> Dict[str, object]:
 
     grouped_series = dx.groupby("subject_id")["icd3"].apply(lambda s: sorted(set(s)))
     all_transactions = grouped_series.tolist()
+    tx_ids = [f"BN-{subj}" for subj in grouped_series.index]
 
     raw_df = pd.DataFrame(
         [
@@ -632,6 +638,7 @@ def load_app3_data() -> Dict[str, object]:
 
     return {
         "transactions": all_transactions,
+        "tx_ids": tx_ids,
         "raw_df": raw_df,
         "labels": labels,
         "min_item_support_pre": 0.0,
@@ -668,6 +675,7 @@ def main() -> None:
             bundle = load_app3_data()
 
     transactions: List[List[str]] = bundle["transactions"]  # type: ignore[assignment]
+    tx_ids: List[str] = bundle["tx_ids"]  # type: ignore[assignment]
     raw_df: pd.DataFrame = bundle["raw_df"]  # type: ignore[assignment]
     labels: Dict[str, str] = bundle["labels"]  # type: ignore[assignment]
     min_item_sup_pre: float = float(bundle["min_item_support_pre"])  # type: ignore[arg-type]
@@ -825,22 +833,57 @@ def main() -> None:
 
             with col_tree:
                 st.markdown("#### Sơ đồ Mini FP-Tree")
-                show_dashed_links = st.checkbox(
-                    "Hiển thị mũi tên nét đứt (Node-Link từ Header Table)",
-                    value=True,
-                )
+                ctrl_col1, ctrl_col2 = st.columns([1.2, 1.0])
+                with ctrl_col1:
+                    num_tree_tx = st.slider(
+                        "Số lượng giao dịch dùng để vẽ cây:",
+                        min_value=3,
+                        max_value=30,
+                        value=10,
+                        step=1,
+                    )
+                with ctrl_col2:
+                    show_dashed_links = st.checkbox(
+                        "Hiển thị mũi tên nét đứt (Node-Link)",
+                        value=True,
+                    )
 
-                # Mặc định luôn dựng và vẽ Mini FP-Tree (Top 8 Items trên 15 giao dịch mẫu)
+                # Lọc các giao dịch có chứa ít nhất 1 item thuộc Top 8 F-List để vẽ cây trực quan
                 top8_items = set(fptree_obj.flist_order[:8])
-                mini_trans = [[x for x in t if x in top8_items] for t in transactions[:25]]
-                mini_trans = [t for t in mini_trans if t][:15]
-                mini_tree = WhiteBoxFPTree(mini_trans, min_support_count=2)
+                selected_records = []
+                for idx_tx, t in enumerate(transactions):
+                    filtered_items = [x for x in t if x in top8_items]
+                    if filtered_items:
+                        tx_code = tx_ids[idx_tx] if idx_tx < len(tx_ids) else f"GD-{idx_tx+1}"
+                        selected_records.append((tx_code, t, filtered_items))
+                    if len(selected_records) == num_tree_tx:
+                        break
+
+                mini_trans = [rec[2] for rec in selected_records]
+                mini_tree = WhiteBoxFPTree(mini_trans, min_support_count=1)
                 mini_dot = mini_tree.to_graphviz_dot(
                     item_labels=labels,
                     show_node_links=show_dashed_links,
-                    max_nodes=60,
+                    max_nodes=80,
                 )
                 st.graphviz_chart(mini_dot, width="stretch")
+
+            st.divider()
+            st.markdown(f"#### Danh sách {len(selected_records)} giao dịch đã chọn để dựng cây Mini FP-Tree")
+            selected_tx_rows = []
+            for stt, ((tx_code, orig_items, filt_items), ordered_branch) in enumerate(
+                zip(selected_records, mini_tree.ordered_transactions), start=1
+            ):
+                selected_tx_rows.append(
+                    {
+                        "STT": stt,
+                        "Mã Giao Dịch": tx_code,
+                        "Items gốc (thuộc Top F-List)": ", ".join(filt_items),
+                        "Nhánh chèn vào FP-Tree (Theo thứ tự F-List)": "{null} -> " + " -> ".join(ordered_branch),
+                        "Chi tiết Tên trên nhánh": " -> ".join(labels.get(x, x) for x in ordered_branch),
+                    }
+                )
+            st.dataframe(pd.DataFrame(selected_tx_rows), width="stretch", hide_index=True)
 
     # --------------------------------------------------------------------------
     # TAB 3: KHAI PHÁ LUẬT & HỆ THỐNG GỢI Ý (RULES & LIVE RECOMMENDER)
