@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="638.28pt" height="135.36pt" viewBox="0 0 638.28 135.36" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-03T18:52:29.491536</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 135.36 
+L 638.28 135.36 
+L 638.28 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 29.4264 94.51296 
+L 148.5036 94.51296 
+Q 163.8486 94.51296 163.8486 91.74096 
+L 163.8486 31.42224 
+Q 163.8486 28.65024 148.5036 28.65024 
+L 29.4264 28.65024 
+Q 14.0814 28.65024 14.0814 31.42224 
+L 14.0814 91.74096 
+Q 14.0814 94.51296 29.4264 94.51296 
+z
+" clip-path="url(#pc03b9c3052)" style="fill: #f1f5f9; stroke: #cad5de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 182.8764 94.51296 
+L 301.9536 94.51296 
+Q 317.2986 94.51296 317.2986 91.74096 
+L 317.2986 31.42224 
+Q 317.2986 28.65024 301.9536 28.65024 
+L 182.8764 28.65024 
+Q 167.5314 28.65024 167.5314 31.42224 
+L 167.5314 91.74096 
+Q 167.5314 94.51296 182.8764 94.51296 
+z
+" clip-path="url(#pc03b9c3052)" style="fill: #f1f5f9; stroke: #cad5de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 336.3264 94.51296 
+L 455.4036 94.51296 
+Q 470.7486 94.51296 470.7486 91.74096 
+L 470.7486 31.42224 
+Q 470.7486 28.65024 455.4036 28.65024 
+L 336.3264 28.65024 
+Q 320.9814 28.65024 320.9814 31.42224 
+L 320.9814 91.74096 
+Q 320.9814 94.51296 336.3264 94.51296 
+z
+" clip-path="url(#pc03b9c3052)" style="fill: #f1f5f9; stroke: #cad5de; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 489.7764 94.51296 
+L 608.8536 94.51296 
+Q 624.1986 94.51296 624.1986 91.74096 
+L 624.1986 31.42224 
+Q 624.1986 28.65024 608.8536 28.65024 
+L 489.7764 28.65024 
+Q 474.4314 28.65024 474.4314 31.42224 
+L 474.4314 91.74096 
+Q 474.4314 94.51296 489.7764 94.51296 
+z
+" clip-path="url(#pc03b9c3052)" style="fill: #f1f5f9; stroke: #cad5de; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="88.965" y="57.738658" transform="rotate(-0 88.965 57.738658)">Hóa đơn</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="88.965" y="77.761834" transform="rotate(-0 88.965 77.761834)">Một giỏ hàng / mã hóa đơn</text>
+   </g>
+   <g id="patch_6">
+    <path d="M 161.553144 62.136 
+Q 166.303243 62.136 168.817273 62.136 
+" style="fill: none; stroke: #0c817f; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 164.417273 59.936 
+L 168.817273 62.136 
+L 164.417273 64.336 
+" style="fill: none; stroke: #0c817f; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="242.415" y="57.738658" transform="rotate(-0 242.415 57.738658)">FP-Growth</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="242.415" y="78.357498" transform="rotate(-0 242.415 78.357498)">Tập sản phẩm thường xuyên</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 315.003144 62.136 
+Q 319.753243 62.136 322.267273 62.136 
+" style="fill: none; stroke: #0c817f; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 317.867273 59.936 
+L 322.267273 62.136 
+L 317.867273 64.336 
+" style="fill: none; stroke: #0c817f; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="395.865" y="58.804683" transform="rotate(-0 395.865 58.804683)">Luật kết hợp</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="395.865" y="77.641307" transform="rotate(-0 395.865 77.641307)">Support · confidence · lift</text>
+   </g>
+   <g id="patch_8">
+    <path d="M 468.453144 62.136 
+Q 473.203243 62.136 475.717273 62.136 
+" style="fill: none; stroke: #0c817f; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 471.317273 59.936 
+L 475.717273 62.136 
+L 471.317273 64.336 
+" style="fill: none; stroke: #0c817f; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="549.315" y="58.804556" transform="rotate(-0 549.315 58.804556)">Quyết định</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 8.5px; font-family: 'Arial'; text-anchor: middle; fill: #17283d" x="549.315" y="77.761834" transform="rotate(-0 549.315 77.761834)">Thử gợi ý mua kèm / combo</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc03b9c3052">
+   <rect x="12.24" y="12.24" width="613.8" height="110.88"/>
+  </clipPath>
+ </defs>
+</svg>

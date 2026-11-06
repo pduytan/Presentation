@@ -1,0 +1,195 @@
+﻿antecedents,consequents,support,confidence,lift
+Unspecified septicemia,Severe sepsis,0.1,1.0,8.333333333333334
+Severe sepsis,Unspecified septicemia,0.1,0.8333333333333334,8.333333333333334
+"Chronic kidney disease, stage 3 (moderate)","Hypertensive chronic kidney disease with stage 1 through stage 4 chronic kidney disease, or unspecified chronic kidney disease",0.11,0.7333333333333334,6.666666666666667
+"Hypertensive chronic kidney disease with stage 1 through stage 4 chronic kidney disease, or unspecified chronic kidney disease","Chronic kidney disease, stage 3 (moderate)",0.11,1.0,6.666666666666667
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation","Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",0.11,0.9166666666666667,6.5476190476190474
+"Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation",0.11,0.7857142857142857,6.5476190476190474
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",0.11,0.9166666666666667,6.5476190476190474
+"Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Hyposmolality and/or hyponatremia",0.11,0.7857142857142857,6.5476190476190474
+"Atrial fibrillation, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified",0.11,0.8461538461538461,6.50887573964497
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified","Atrial fibrillation, Chronic kidney disease, Stage III (moderate)",0.11,0.8461538461538461,6.50887573964497
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified","Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia",0.11,0.8461538461538461,6.50887573964497
+"Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified",0.11,0.8461538461538461,6.50887573964497
+"Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia","Atrial fibrillation, Acute kidney failure, unspecified",0.1,0.7692307692307693,5.9171597633136095
+"Atrial fibrillation, Acute kidney failure, unspecified","Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia",0.1,0.7692307692307693,5.9171597633136095
+"Other and unspecified hyperlipidemia, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.1,1.0,5.88235294117647
+"Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified",0.13,0.7222222222222223,5.555555555555556
+"Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia",0.11,0.6111111111111112,5.555555555555556
+"Acute kidney failure, unspecified","Type 2 diabetes mellitus without complications, Hypo-osmolality and hyponatremia",0.11,0.6111111111111112,5.555555555555556
+"Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation, Acute kidney failure, unspecified",0.11,0.6111111111111112,5.555555555555556
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation","Chronic kidney disease, Stage III (moderate)",0.12,1.0,5.555555555555555
+"Type 2 diabetes mellitus without complications, Hypo-osmolality and hyponatremia","Acute kidney failure, unspecified",0.11,1.0,5.555555555555555
+"Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.17,0.9444444444444445,5.555555555555555
+"Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Hyposmolality and/or hyponatremia",0.12,0.6666666666666666,5.555555555555555
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia","Chronic kidney disease, Stage III (moderate)",0.11,1.0,5.555555555555555
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Other and unspecified hyperlipidemia","Chronic kidney disease, Stage III (moderate)",0.1,1.0,5.555555555555555
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Chronic kidney disease, Stage III (moderate)",0.17,1.0,5.555555555555555
+"Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation",0.12,0.6666666666666666,5.555555555555555
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Hyposmolality and/or hyponatremia","Chronic kidney disease, Stage III (moderate)",0.12,1.0,5.555555555555555
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation, Acute kidney failure, unspecified","Chronic kidney disease, Stage III (moderate)",0.11,1.0,5.555555555555555
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified","Chronic kidney disease, Stage III (moderate)",0.13,1.0,5.555555555555555
+"Atrial fibrillation, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",0.1,0.7692307692307693,5.4945054945054945
+"Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)","Atrial fibrillation, Hyposmolality and/or hyponatremia",0.1,0.7142857142857143,5.4945054945054945
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",0.13,0.7647058823529411,5.462184873949579
+"Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.13,0.9285714285714285,5.462184873949579
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Atrial fibrillation, Chronic kidney disease, Stage III (moderate)",0.12,0.7058823529411764,5.4298642533936645
+"Atrial fibrillation, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.12,0.923076923076923,5.4298642533936645
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia",0.12,0.7058823529411764,5.4298642533936645
+"Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.12,0.923076923076923,5.4298642533936645
+"Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.11,0.9166666666666667,5.392156862745098
+"Atrial fibrillation, Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.11,0.9166666666666667,5.392156862745098
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia, Chronic kidney disease, Stage III (moderate)",0.11,0.6470588235294117,5.3921568627450975
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Atrial fibrillation, Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",0.11,0.6470588235294117,5.3921568627450975
+"Atrial fibrillation, Acute kidney failure, unspecified","Chronic kidney disease, Stage III (moderate)",0.12,0.923076923076923,5.128205128205128
+"Chronic kidney disease, Stage III (moderate)","Atrial fibrillation, Acute kidney failure, unspecified",0.12,0.6666666666666666,5.128205128205128
+"Acute respiratory failure with hypoxia, Hypo-osmolality and hyponatremia","Acute kidney failure, unspecified",0.11,0.9166666666666667,5.0925925925925934
+"Acute kidney failure, unspecified","Acute respiratory failure with hypoxia, Hypo-osmolality and hyponatremia",0.11,0.6111111111111112,5.0925925925925934
+"Acute kidney failure, unspecified","Hyperlipidemia, unspecified, Hypo-osmolality and hyponatremia",0.11,0.6111111111111112,5.0925925925925934
+Hypo-osmolality and hyponatremia,"Acute kidney failure, unspecified, Hyperlipidemia, unspecified",0.11,0.6111111111111112,5.0925925925925934
+"Hyperlipidemia, unspecified, Hypo-osmolality and hyponatremia","Acute kidney failure, unspecified",0.11,0.9166666666666667,5.0925925925925934
+"Acute kidney failure, unspecified, Hyperlipidemia, unspecified",Hypo-osmolality and hyponatremia,0.11,0.9166666666666667,5.0925925925925934
+"Atrial fibrillation, Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia","Chronic kidney disease, Stage III (moderate)",0.1,0.9090909090909092,5.050505050505051
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Atrial fibrillation, Acute kidney failure, unspecified",0.11,0.6470588235294117,4.977375565610859
+"Atrial fibrillation, Acute kidney failure, unspecified","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate)",0.11,0.8461538461538461,4.977375565610859
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate)","Atrial fibrillation, Acute kidney failure, unspecified",0.11,0.6470588235294117,4.977375565610859
+"Atrial fibrillation, Acute kidney failure, unspecified","Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",0.11,0.8461538461538461,4.977375565610859
+"Acute kidney failure, unspecified, Hyperlipidemia, unspecified",Type 2 diabetes mellitus without complications,0.1,0.8333333333333334,4.901960784313725
+"Acute kidney failure, unspecified, Acute respiratory failure with hypoxia",Hypo-osmolality and hyponatremia,0.11,0.8461538461538461,4.700854700854701
+Hypo-osmolality and hyponatremia,"Acute kidney failure, unspecified, Acute respiratory failure with hypoxia",0.11,0.6111111111111112,4.700854700854701
+"Acute kidney failure, unspecified, Type 2 diabetes mellitus without complications",Hypo-osmolality and hyponatremia,0.11,0.8461538461538461,4.700854700854701
+Hypo-osmolality and hyponatremia,"Acute kidney failure, unspecified, Type 2 diabetes mellitus without complications",0.11,0.6111111111111112,4.700854700854701
+Hypo-osmolality and hyponatremia,"Acute kidney failure, unspecified",0.15,0.8333333333333334,4.62962962962963
+"Acute kidney failure, unspecified",Hypo-osmolality and hyponatremia,0.15,0.8333333333333334,4.62962962962963
+"Atrial fibrillation, Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.1,1.0,4.545454545454546
+Type 2 diabetes mellitus without complications,"Acute kidney failure, unspecified, Hypo-osmolality and hyponatremia",0.11,0.6470588235294117,4.313725490196078
+"Acute kidney failure, unspecified, Hypo-osmolality and hyponatremia",Type 2 diabetes mellitus without complications,0.11,0.7333333333333334,4.313725490196078
+"Hypotension, unspecified",Hypo-osmolality and hyponatremia,0.1,0.7692307692307693,4.273504273504274
+"Atrial fibrillation, Hyposmolality and/or hyponatremia","Chronic kidney disease, Stage III (moderate)",0.1,0.7692307692307693,4.273504273504274
+"Acute kidney failure, unspecified",Type 2 diabetes mellitus without complications,0.13,0.7222222222222223,4.248366013071895
+Type 2 diabetes mellitus without complications,"Acute kidney failure, unspecified",0.13,0.7647058823529411,4.248366013071895
+"Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.12,0.923076923076923,4.195804195804196
+"Atrial fibrillation, Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified",0.12,0.923076923076923,4.195804195804196
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation","Acute kidney failure, unspecified",0.11,0.9166666666666667,4.166666666666667
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.11,0.9166666666666667,4.166666666666667
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Atrial fibrillation, Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified",0.11,0.9166666666666667,4.166666666666667
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.11,0.9166666666666667,4.166666666666667
+"Acute kidney failure, unspecified","Chronic kidney disease, stage 3 (moderate)",0.11,0.6111111111111112,4.074074074074074
+"Chronic kidney disease, stage 3 (moderate)","Acute kidney failure, unspecified",0.11,0.7333333333333334,4.074074074074074
+"Atrial fibrillation, Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia",0.1,0.7692307692307693,4.048582995951417
+"Hyperlipidemia, unspecified, Type 2 diabetes mellitus without complications","Acute kidney failure, unspecified",0.1,0.7142857142857143,3.9682539682539684
+"Chronic kidney disease, stage 3 (moderate)",Chronic diastolic (congestive) heart failure,0.1,0.6666666666666667,3.9215686274509807
+"Chronic kidney disease, stage 3 (moderate)",Acute respiratory failure with hypoxia,0.11,0.7333333333333334,3.859649122807018
+"Acute kidney failure, unspecified, Hypo-osmolality and hyponatremia",Acute respiratory failure with hypoxia,0.11,0.7333333333333334,3.859649122807018
+"Atrial fibrillation, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.11,0.8461538461538461,3.8461538461538463
+Gastro-esophageal reflux disease without esophagitis,"Hyperlipidemia, unspecified",0.12,0.923076923076923,3.8461538461538463
+Unspecified atrial fibrillation,Atherosclerotic heart disease of native coronary artery without angina pectoris,0.11,0.6111111111111112,3.8194444444444446
+Atherosclerotic heart disease of native coronary artery without angina pectoris,Unspecified atrial fibrillation,0.11,0.6875,3.8194444444444446
+"Acute kidney failure, unspecified",Acute respiratory failure with hypoxia,0.13,0.7222222222222223,3.8011695906432754
+Acute respiratory failure with hypoxia,"Acute kidney failure, unspecified",0.13,0.6842105263157895,3.801169590643275
+Obstructive sleep apnea (adult) (pediatric),"Hyperlipidemia, unspecified",0.1,0.9090909090909092,3.7878787878787885
+"Insomnia, unspecified, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.1,0.8333333333333334,3.787878787878788
+"Chronic kidney disease, stage 3 (moderate)",Unspecified atrial fibrillation,0.1,0.6666666666666667,3.703703703703704
+Atherosclerotic heart disease of native coronary artery without angina pectoris,Type 2 diabetes mellitus without complications,0.1,0.625,3.676470588235294
+Unspecified atrial fibrillation,Chronic diastolic (congestive) heart failure,0.11,0.6111111111111112,3.5947712418300655
+Unspecified atrial fibrillation,Type 2 diabetes mellitus without complications,0.11,0.6111111111111112,3.5947712418300655
+"Acute kidney failure, unspecified",Chronic diastolic (congestive) heart failure,0.11,0.6111111111111112,3.5947712418300655
+Hypo-osmolality and hyponatremia,Type 2 diabetes mellitus without complications,0.11,0.6111111111111112,3.5947712418300655
+Chronic diastolic (congestive) heart failure,Unspecified atrial fibrillation,0.11,0.6470588235294117,3.594771241830065
+Type 2 diabetes mellitus without complications,Hypo-osmolality and hyponatremia,0.11,0.6470588235294117,3.594771241830065
+Chronic diastolic (congestive) heart failure,"Acute kidney failure, unspecified",0.11,0.6470588235294117,3.594771241830065
+Type 2 diabetes mellitus without complications,Unspecified atrial fibrillation,0.11,0.6470588235294117,3.594771241830065
+"Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",Atrial fibrillation,0.12,0.857142857142857,3.5714285714285707
+"Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified",0.14,0.7777777777777779,3.535353535353536
+"Acute kidney failure, unspecified","Chronic kidney disease, Stage III (moderate)",0.14,0.6363636363636365,3.535353535353536
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified",Atrial fibrillation,0.11,0.8461538461538461,3.5256410256410255
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",Atrial fibrillation,0.11,0.8461538461538461,3.5256410256410255
+Hypo-osmolality and hyponatremia,Acute respiratory failure with hypoxia,0.12,0.6666666666666666,3.508771929824561
+"Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia","Chronic kidney disease, Stage III (moderate)",0.12,0.631578947368421,3.508771929824561
+Acute respiratory failure with hypoxia,Hypo-osmolality and hyponatremia,0.12,0.631578947368421,3.508771929824561
+"Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia",0.12,0.6666666666666666,3.508771929824561
+"Congestive heart failure, unspecified","Acute kidney failure, unspecified",0.1,0.7692307692307693,3.4965034965034967
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified",0.13,0.7647058823529411,3.475935828877005
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Acute kidney failure, unspecified",0.13,0.7647058823529411,3.475935828877005
+"Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia, Chronic kidney disease, Stage III (moderate)",Atrial fibrillation,0.1,0.8333333333333334,3.4722222222222223
+Type 2 diabetes mellitus without complications,"Hyperlipidemia, unspecified",0.14,0.823529411764706,3.431372549019608
+"Anemia, unspecified, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.12,0.75,3.409090909090909
+"Other and unspecified hyperlipidemia, Hyposmolality and/or hyponatremia","Acute kidney failure, unspecified",0.12,0.75,3.409090909090909
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate)","Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia",0.11,0.6470588235294117,3.405572755417956
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified","Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia",0.11,0.6470588235294117,3.405572755417956
+"Anemia, unspecified, Hyposmolality and/or hyponatremia",Acute respiratory failure,0.1,0.625,3.289473684210526
+"Acute kidney failure, unspecified, Acute respiratory failure",Hyposmolality and/or hyponatremia,0.1,1.0,3.2258064516129035
+"Acute kidney failure, unspecified, Type 2 diabetes mellitus without complications","Hyperlipidemia, unspecified",0.1,0.7692307692307693,3.2051282051282053
+"Chronic kidney disease, Stage III (moderate), Hyposmolality and/or hyponatremia",Atrial fibrillation,0.1,0.7692307692307693,3.2051282051282053
+"Congestive heart failure, unspecified",Atrial fibrillation,0.1,0.7692307692307693,3.2051282051282053
+Atherosclerotic heart disease of native coronary artery without angina pectoris,"Hyperlipidemia, unspecified",0.12,0.75,3.125
+"Chronic kidney disease, stage 3 (moderate)","Hyperlipidemia, unspecified",0.11,0.7333333333333334,3.055555555555556
+"Acute kidney failure, unspecified, Hypo-osmolality and hyponatremia","Hyperlipidemia, unspecified",0.11,0.7333333333333334,3.055555555555556
+"Hyposmolality and/or hyponatremia, Acute respiratory failure","Acute kidney failure, unspecified",0.1,0.6666666666666667,3.0303030303030307
+"Chronic kidney disease, Stage III (moderate)",Atrial fibrillation,0.13,0.7222222222222223,3.00925925925926
+"Anemia, unspecified, Acute kidney failure, unspecified",Hyposmolality and/or hyponatremia,0.12,0.923076923076923,2.9776674937965257
+"Other and unspecified hyperlipidemia, Acute kidney failure, unspecified",Hyposmolality and/or hyponatremia,0.12,0.923076923076923,2.9776674937965257
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",Atrial fibrillation,0.12,0.7058823529411764,2.941176470588235
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate)",Atrial fibrillation,0.12,0.7058823529411764,2.941176470588235
+Chronic diastolic (congestive) heart failure,"Hyperlipidemia, unspecified",0.12,0.7058823529411764,2.941176470588235
+"Insomnia, unspecified, Acute kidney failure, unspecified",Hyposmolality and/or hyponatremia,0.1,0.9090909090909092,2.932551319648094
+"Thrombocytopenia, unspecified",Hyposmolality and/or hyponatremia,0.1,0.9090909090909092,2.932551319648094
+"Anemia, unspecified, Acute respiratory failure",Hyposmolality and/or hyponatremia,0.1,0.9090909090909092,2.932551319648094
+"Acute kidney failure, unspecified",Hyposmolality and/or hyponatremia,0.19,0.8636363636363636,2.7859237536656893
+Hyposmolality and/or hyponatremia,"Acute kidney failure, unspecified",0.19,0.6129032258064516,2.7859237536656893
+Unspecified atrial fibrillation,"Hyperlipidemia, unspecified",0.12,0.6666666666666666,2.7777777777777777
+Hypo-osmolality and hyponatremia,"Hyperlipidemia, unspecified",0.12,0.6666666666666666,2.7777777777777777
+"Acute kidney failure, unspecified","Hyperlipidemia, unspecified",0.12,0.6666666666666666,2.7777777777777777
+"Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",Hyposmolality and/or hyponatremia,0.12,0.857142857142857,2.764976958525345
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",Hyposmolality and/or hyponatremia,0.11,0.8461538461538461,2.729528535980149
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Acute kidney failure, unspecified",Hyposmolality and/or hyponatremia,0.11,0.8461538461538461,2.729528535980149
+"Atrial fibrillation, Acute kidney failure, unspecified",Hyposmolality and/or hyponatremia,0.11,0.8461538461538461,2.729528535980149
+"Atrial fibrillation, Other and unspecified hyperlipidemia",Coronary atherosclerosis of native coronary artery,0.1,0.625,2.717391304347826
+Essential (primary) hypertension,"Hyperlipidemia, unspecified",0.11,0.6470588235294117,2.6960784313725488
+Severe sepsis,Hyposmolality and/or hyponatremia,0.1,0.8333333333333334,2.688172043010753
+"Atrial fibrillation, Acute kidney failure, unspecified, Chronic kidney disease, Stage III (moderate)",Hyposmolality and/or hyponatremia,0.1,0.8333333333333334,2.688172043010753
+Nonspecific elevation of levels of transaminase or lactic acid dehydrogenase [LDH],"Anemia, unspecified",0.1,0.6666666666666667,2.666666666666667
+"Unspecified essential hypertension, Hyposmolality and/or hyponatremia","Anemia, unspecified",0.1,0.6666666666666667,2.666666666666667
+"Hyposmolality and/or hyponatremia, Acute respiratory failure","Anemia, unspecified",0.1,0.6666666666666667,2.666666666666667
+"Other and unspecified hyperlipidemia, Hyposmolality and/or hyponatremia",Atrial fibrillation,0.1,0.625,2.604166666666667
+Diarrhea,Hyposmolality and/or hyponatremia,0.12,0.8,2.580645161290323
+Acute respiratory failure,Hyposmolality and/or hyponatremia,0.15,0.7894736842105263,2.5466893039049237
+"Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia","Anemia, unspecified",0.12,0.631578947368421,2.526315789473684
+"Other and unspecified hyperlipidemia, Hyposmolality and/or hyponatremia","Anemia, unspecified",0.1,0.625,2.5
+"Atrial fibrillation, Chronic kidney disease, Stage III (moderate)",Hyposmolality and/or hyponatremia,0.1,0.7692307692307693,2.481389578163772
+"Congestive heart failure, unspecified",Hyposmolality and/or hyponatremia,0.1,0.7692307692307693,2.481389578163772
+"Depressive disorder, not elsewhere classified","Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",0.1,0.625,2.4038461538461537
+Nonspecific elevation of levels of transaminase or lactic acid dehydrogenase [LDH],Hyposmolality and/or hyponatremia,0.11,0.7333333333333334,2.3655913978494625
+"Chronic kidney disease, Stage III (moderate)",Hyposmolality and/or hyponatremia,0.13,0.7222222222222223,2.3297491039426528
+"Other and unspecified hyperlipidemia, Anemia, unspecified",Hyposmolality and/or hyponatremia,0.1,0.7142857142857143,2.3041474654377883
+"Encephalopathy, unspecified",Hyposmolality and/or hyponatremia,0.12,0.7058823529411764,2.2770398481973433
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified, Chronic kidney disease, Stage III (moderate)",Hyposmolality and/or hyponatremia,0.12,0.7058823529411764,2.2770398481973433
+"Hypertensive chronic kidney disease, unspecified, with chronic kidney disease stage I through stage IV, or unspecified",Hyposmolality and/or hyponatremia,0.12,0.7058823529411764,2.2770398481973433
+"Anemia, unspecified, Unspecified essential hypertension",Hyposmolality and/or hyponatremia,0.1,0.6666666666666667,2.1505376344086025
+"Unspecified essential hypertension, Coronary atherosclerosis of native coronary artery",Other and unspecified hyperlipidemia,0.11,0.7857142857142857,2.0676691729323307
+"Anemia, unspecified",Hyposmolality and/or hyponatremia,0.16,0.64,2.064516129032258
+Coronary atherosclerosis of native coronary artery,Other and unspecified hyperlipidemia,0.18,0.7826086956521738,2.0594965675057204
+"Insomnia, unspecified",Hyposmolality and/or hyponatremia,0.12,0.631578947368421,2.0373514431239386
+"Atrial fibrillation, Hyposmolality and/or hyponatremia",Other and unspecified hyperlipidemia,0.1,0.7692307692307693,2.0242914979757085
+"Atrial fibrillation, Coronary atherosclerosis of native coronary artery",Other and unspecified hyperlipidemia,0.1,0.7692307692307693,2.0242914979757085
+"Atrial fibrillation, Other and unspecified hyperlipidemia",Hyposmolality and/or hyponatremia,0.1,0.625,2.0161290322580645
+Other and unspecified Escherichia coli [E. coli],Hyposmolality and/or hyponatremia,0.1,0.625,2.0161290322580645
+"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",Other and unspecified hyperlipidemia,0.19,0.7307692307692307,1.923076923076923
+"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled, Unspecified essential hypertension",Other and unspecified hyperlipidemia,0.12,0.7058823529411764,1.8575851393188854
+Nonspecific elevation of levels of transaminase or lactic acid dehydrogenase [LDH],Unspecified essential hypertension,0.11,0.7333333333333334,1.788617886178862
+Atrial fibrillation,Other and unspecified hyperlipidemia,0.16,0.6666666666666667,1.7543859649122808
+"Encephalopathy, unspecified",Unspecified essential hypertension,0.12,0.7058823529411764,1.721664275466284
+Other and unspecified hyperlipidemia,Unspecified essential hypertension,0.26,0.6842105263157895,1.668806161745828
+Unspecified essential hypertension,Other and unspecified hyperlipidemia,0.26,0.6341463414634146,1.668806161745828
+"Acute kidney failure, unspecified, Hyposmolality and/or hyponatremia",Other and unspecified hyperlipidemia,0.12,0.631578947368421,1.6620498614958448
+"Depressive disorder, not elsewhere classified",Other and unspecified hyperlipidemia,0.1,0.625,1.644736842105263
+"Anemia, unspecified, Hyposmolality and/or hyponatremia",Other and unspecified hyperlipidemia,0.1,0.625,1.644736842105263
+Esophageal reflux,Unspecified essential hypertension,0.12,0.6666666666666666,1.6260162601626016
+"Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",Unspecified essential hypertension,0.17,0.6538461538461539,1.5947467166979363
+"Urinary tract infection, site not specified",Unspecified essential hypertension,0.11,0.6470588235294117,1.5781922525107603
+"Other and unspecified hyperlipidemia, Diabetes mellitus without mention of complication, type II or unspecified type, not stated as uncontrolled",Unspecified essential hypertension,0.12,0.631578947368421,1.5404364569961488
+"Depressive disorder, not elsewhere classified",Unspecified essential hypertension,0.1,0.625,1.524390243902439
+"Anemia, unspecified, Hyposmolality and/or hyponatremia",Unspecified essential hypertension,0.1,0.625,1.524390243902439
+"Other and unspecified hyperlipidemia, Coronary atherosclerosis of native coronary artery",Unspecified essential hypertension,0.11,0.6111111111111112,1.4905149051490516
+Coronary atherosclerosis of native coronary artery,Unspecified essential hypertension,0.14,0.6086956521739131,1.484623541887593
+"Anemia, unspecified",Unspecified essential hypertension,0.15,0.6,1.4634146341463414
