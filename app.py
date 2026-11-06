@@ -90,7 +90,12 @@ class FPTreeNode:
 class WhiteBoxFPTree:
     """Xây dựng cây FP-Tree, Header Table (F-List), Conditional Pattern Base & vẽ Graphviz."""
 
-    def __init__(self, transactions: List[List[str]], min_support_count: int):
+    def __init__(
+        self,
+        transactions: List[List[str]],
+        min_support_count: int,
+        fixed_flist_order: Optional[List[str]] = None,
+    ):
         self.min_support_count = max(1, min_support_count)
         self.total_transactions = len(transactions)
         self.raw_item_occurrences = sum(len(t) for t in transactions)
@@ -99,10 +104,14 @@ class WhiteBoxFPTree:
         item_counts = Counter(item for t in transactions for item in set(t))
         frequent_items = {k: v for k, v in item_counts.items() if v >= self.min_support_count}
 
-        self.flist_order: List[str] = sorted(
-            frequent_items.keys(),
-            key=lambda x: (-frequent_items[x], str(x)),
-        )
+        if fixed_flist_order is not None:
+            # Giữ nguyên thứ tự F-List toàn cục (Global F-List) thay vì tính lại cục bộ trên tập mẫu
+            self.flist_order: List[str] = [x for x in fixed_flist_order if x in frequent_items]
+        else:
+            self.flist_order = sorted(
+                frequent_items.keys(),
+                key=lambda x: (-frequent_items[x], str(x)),
+            )
         self.rank: Dict[str, int] = {item: idx for idx, item in enumerate(self.flist_order)}
 
         self.header_table: Dict[str, Dict[str, object]] = {
@@ -849,7 +858,8 @@ def main() -> None:
                     )
 
                 # Lọc các giao dịch có chứa ít nhất 1 item thuộc Top 8 F-List để vẽ cây trực quan
-                top8_items = set(fptree_obj.flist_order[:8])
+                top8_flist = fptree_obj.flist_order[:8]
+                top8_items = set(top8_flist)
                 selected_records = []
                 for idx_tx, t in enumerate(transactions):
                     filtered_items = [x for x in t if x in top8_items]
@@ -860,7 +870,11 @@ def main() -> None:
                         break
 
                 mini_trans = [rec[2] for rec in selected_records]
-                mini_tree = WhiteBoxFPTree(mini_trans, min_support_count=1)
+                mini_tree = WhiteBoxFPTree(
+                    mini_trans,
+                    min_support_count=1,
+                    fixed_flist_order=top8_flist,
+                )
                 mini_dot = mini_tree.to_graphviz_dot(
                     item_labels=labels,
                     show_node_links=show_dashed_links,
