@@ -765,10 +765,10 @@ def main() -> None:
 
     tab1, tab2, tab3, tab4 = st.tabs(
         [
-            "Tab 1 — Khám phá & Tiền xử lý dữ liệu",
-            "Tab 2 — Giải phẫu FP-Tree (White-Box)",
-            "Tab 3 — Khai phá Luật & Hệ thống Gợi ý",
-            "Tab 4 — So sánh Hiệu năng (FP-Growth vs. Apriori)",
+            "Khám phá dữ liệu",
+            "Giải phẫu FP-Tree (White-Box)",
+            "Khai phá Luật & Hệ thống Gợi ý",
+            "So sánh Hiệu năng (FP-Growth vs. Apriori)",
         ]
     )
 
