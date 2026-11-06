@@ -389,11 +389,25 @@ def run_benchmark_comparison(
     max_len: int = 3,
 ) -> pd.DataFrame:
     records = []
+    col_supports = encoded_df.mean(axis=0)
+
     for sup in support_thresholds:
+        # Chỉ giữ các cột đạt ngưỡng min_support hiện tại để tránh tràn RAM trên Streamlit Cloud
+        active_cols = col_supports[col_supports >= sup].index
+        sub_df = encoded_df[active_cols]
+        n_active = len(active_cols)
+        # Nếu số cặp ứng viên vượt quá 15,000 trên tập lớn, bật low_memory=True cho Apriori để tránh OOM (6GB RAM)
+        use_low_mem = (n_active * (n_active - 1) // 2) > 15000 and len(sub_df) > 5000
+
         for algo_name, algo_fn in [("FP-Growth", fpgrowth), ("Apriori", apriori)]:
             tracemalloc.start()
             t0 = time.perf_counter()
-            res = algo_fn(encoded_df, min_support=sup, use_colnames=True, max_len=max_len)
+            if sub_df.shape[1] == 0:
+                res = pd.DataFrame()
+            elif algo_name == "Apriori":
+                res = algo_fn(sub_df, min_support=sup, use_colnames=True, max_len=max_len, low_memory=use_low_mem)
+            else:
+                res = algo_fn(sub_df, min_support=sup, use_colnames=True, max_len=max_len)
             elapsed_ms = (time.perf_counter() - t0) * 1000.0
             _, peak_bytes = tracemalloc.get_traced_memory()
             tracemalloc.stop()
@@ -470,7 +484,7 @@ def load_app1_data() -> Dict[str, object]:
         "default_minsup": 0.02,
         "default_minconf": 0.60,
         "default_minlift": 1.5,
-        "benchmark_sups": (0.05, 0.03, 0.02, 0.015),
+        "benchmark_sups": (0.06, 0.05, 0.04, 0.03),
     }
 
 
@@ -781,8 +795,6 @@ def main() -> None:
     )
 
     st.title(app_choice)
-    if app_key == "app2":
-        render_app2_custom_placeholder()
 
     n_trans = len(transactions)
     all_unique_items = len({x for t in transactions for x in t})
@@ -809,7 +821,7 @@ def main() -> None:
     # --------------------------------------------------------------------------
     with tab1:
         st.subheader("Dữ liệu giao dịch thô (Raw Data)")
-        st.dataframe(raw_df, use_container_width=True, height=300)
+        st.dataframe(raw_df, width="stretch", height=300)
 
         st.divider()
 
@@ -837,7 +849,7 @@ def main() -> None:
             color_continuous_scale="Blues",
         )
         fig_bar.update_layout(height=400, margin=dict(l=10, r=10, t=20, b=10), showlegend=False)
-        st.plotly_chart(fig_bar, use_container_width=True)
+        st.plotly_chart(fig_bar, width="stretch")
 
     # --------------------------------------------------------------------------
     # TAB 2: GIẢI PHẪU FP-TREE (MẶC ĐỊNH VẼ MINI FP-TREE)
@@ -874,7 +886,7 @@ def main() -> None:
 
             with col_flist:
                 st.markdown("#### Bảng Header Table (F-List)")
-                st.dataframe(header_df, use_container_width=True, height=380, hide_index=True)
+                st.dataframe(header_df, width="stretch", height=380, hide_index=True)
 
             with col_tree:
                 st.markdown("#### Sơ đồ Mini FP-Tree")
@@ -893,7 +905,7 @@ def main() -> None:
                     show_node_links=show_dashed_links,
                     max_nodes=60,
                 )
-                st.graphviz_chart(mini_dot, use_container_width=True)
+                st.graphviz_chart(mini_dot, width="stretch")
 
     # --------------------------------------------------------------------------
     # TAB 3: KHAI PHÁ LUẬT & HỆ THỐNG GỢI Ý (RULES & LIVE RECOMMENDER)
@@ -973,7 +985,7 @@ def main() -> None:
                 fi_display = fi_display[["Mã Itemsets", "Tên chi tiết", "length", "count", "Support"]].rename(
                     columns={"length": "Số phần tử", "count": "Số giao dịch"}
                 )
-                st.dataframe(fi_display, use_container_width=True, height=360, hide_index=True)
+                st.dataframe(fi_display, width="stretch", height=360, hide_index=True)
 
         with col_ar:
             st.subheader("3. Bảng Luật Kết Hợp (Association Rules)")
@@ -991,7 +1003,7 @@ def main() -> None:
                 ar_display["Confidence"] = ar_display["confidence"].round(4)
                 ar_display["Lift"] = ar_display["lift"].round(3)
                 ar_display = ar_display[["Antecedents (X)", "Consequents (Y)", "Support", "Confidence", "Lift"]]
-                st.dataframe(ar_display, use_container_width=True, height=360, hide_index=True)
+                st.dataframe(ar_display, width="stretch", height=360, hide_index=True)
 
         if not rules_df.empty:
             st.divider()
@@ -1020,12 +1032,15 @@ def main() -> None:
                     labels={"support": "Support", "confidence": "Confidence", "lift": "Lift"},
                 )
                 fig_3d.update_layout(height=460, margin=dict(l=0, r=0, t=20, b=0))
-                st.plotly_chart(fig_3d, use_container_width=True)
+                st.plotly_chart(fig_3d, width="stretch")
 
             with viz_col2:
                 st.subheader("5. Đồ thị Mạng lưới Liên kết")
                 html_net = render_pyvis_network(rules_df, labels=labels, max_rules=20)
-                components.html(html_net, height=470, scrolling=False)
+                if hasattr(st, "iframe"):
+                    st.iframe(html_net, height=470)
+                else:
+                    components.html(html_net, height=470, scrolling=False)
 
     # --------------------------------------------------------------------------
     # TAB 4: CHỈ CHỨA BIỂU ĐỒ VÀ BẢNG SỐ LIỆU BENCHMARK CHI TIẾT
@@ -1054,7 +1069,7 @@ def main() -> None:
             )
             fig_time.update_traces(textposition="top center", line=dict(width=3))
             fig_time.update_layout(height=400, xaxis_title="Ngưỡng min_support")
-            st.plotly_chart(fig_time, use_container_width=True)
+            st.plotly_chart(fig_time, width="stretch")
 
         with bcol2:
             fig_mem = px.line(
@@ -1069,10 +1084,10 @@ def main() -> None:
             )
             fig_mem.update_traces(textposition="top center", line=dict(width=3))
             fig_mem.update_layout(height=400, xaxis_title="Ngưỡng min_support")
-            st.plotly_chart(fig_mem, use_container_width=True)
+            st.plotly_chart(fig_mem, width="stretch")
 
         st.markdown("#### Bảng số liệu Benchmark chi tiết")
-        st.dataframe(bench_df, use_container_width=True, hide_index=True)
+        st.dataframe(bench_df, width="stretch", hide_index=True)
 
 
 if __name__ == "__main__":

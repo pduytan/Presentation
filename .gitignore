@@ -1,1 +1,25 @@
+# Tài liệu nháp nội bộ
 plan.md
+
+# Byte-compiled / cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Môi trường ảo (Virtual environments)
+.venv/
+venv/
+env/
+ENV/
+
+# File tạm & bộ nhớ đệm dữ liệu
+tmp/
+*.pkl
+*.log
+
+# Cấu hình IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
