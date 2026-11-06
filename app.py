@@ -44,6 +44,14 @@ st.markdown(
     """
     <style>
     .block-container { padding-top: 1.4rem; padding-bottom: 2rem; }
+    div[data-baseweb="tab-list"] {
+        width: 100%;
+        display: flex;
+    }
+    button[data-baseweb="tab"] {
+        flex: 1 1 0%;
+        justify-content: center;
+    }
     div[data-testid="stMetric"] {
         background: rgba(150, 150, 150, 0.06);
         border: 1px solid rgba(150, 150, 150, 0.25);
@@ -756,9 +764,14 @@ def main() -> None:
     all_unique_items = len({x for t in transactions for x in t})
     min_sup_count = math.ceil(min_support * n_trans)
 
+    is_clinical = app_key == "app3"
+    unit_name = "hồ sơ bệnh nhân" if is_clinical else "giao dịch"
+    unit_count_col = "Số bệnh nhân" if is_clinical else "Số giao dịch"
+    id_col_name = "Mã Bệnh Nhân" if is_clinical else ("Mã Hóa Đơn" if app_key == "app1" else "Mã Giao Dịch")
+
     kpi1, kpi2, kpi3, kpi4, kpi5 = st.columns(5)
-    kpi1.metric("Số giao dịch / hồ sơ", f"{n_trans:,}")
-    kpi2.metric("Tổng số Items phân biệt", f"{all_unique_items:,}")
+    kpi1.metric("Số bệnh nhân" if is_clinical else "Số giao dịch", f"{n_trans:,}")
+    kpi2.metric("Tổng số Mã bệnh phân biệt" if is_clinical else "Tổng số Items phân biệt", f"{all_unique_items:,}")
     kpi3.metric("Ngưỡng đếm (min_count)", f"{min_sup_count:,} ({min_support*100:.1f}%)")
     kpi4.metric("Tập phổ biến tìm được", f"{len(freq_df):,}")
     kpi5.metric("Luật kết hợp thỏa ngưỡng", f"{len(rules_df):,}")
@@ -766,7 +779,7 @@ def main() -> None:
     tab1, tab2, tab3, tab4 = st.tabs(
         [
             "Khám phá dữ liệu",
-            "Giải phẫu FP-Tree (White-Box)",
+            "Giải phẫu FP-Tree",
             "Khai phá Luật & Hệ thống Gợi ý",
             "So sánh Hiệu năng (FP-Growth vs. Apriori)",
         ]
@@ -776,12 +789,12 @@ def main() -> None:
     # TAB 1: CHỈ CHỨA RAW DATA VÀ TOP 10 ITEMS XUẤT HIỆN NHIỀU NHẤT
     # --------------------------------------------------------------------------
     with tab1:
-        st.subheader("Dữ liệu giao dịch thô (Raw Data)")
+        st.subheader("Dữ liệu hồ sơ bệnh nhân (Raw Data)" if is_clinical else "Dữ liệu giao dịch thô (Raw Data)")
         st.dataframe(raw_df, width="stretch", height=300)
 
         st.divider()
 
-        st.subheader("Top 10 Items xuất hiện nhiều nhất")
+        st.subheader("Top 10 Mã bệnh xuất hiện nhiều nhất" if is_clinical else "Top 10 Items xuất hiện nhiều nhất")
         item_counter = Counter(x for t in transactions for x in set(t))
         top10 = item_counter.most_common(10)
         top10_df = pd.DataFrame(
@@ -789,7 +802,7 @@ def main() -> None:
                 {
                     "Mã Item": k,
                     "Tên hiển thị": f"{labels.get(k, k)} ({k})" if labels.get(k, k) != k else str(k),
-                    "Số giao dịch": v,
+                    unit_count_col: v,
                     "Support (%)": round(v / max(1, n_trans) * 100, 2),
                 }
                 for k, v in top10
@@ -800,7 +813,7 @@ def main() -> None:
             x="Support (%)",
             y="Tên hiển thị",
             orientation="h",
-            text="Số giao dịch",
+            text=unit_count_col,
             color="Support (%)",
             color_continuous_scale="Blues",
         )
@@ -829,7 +842,10 @@ def main() -> None:
             compression_vs_raw = (1.0 - tree_nodes / max(1, raw_occ)) * 100.0
 
             c1, c2, c3, c4 = st.columns(4)
-            c1.metric("Tổng phần tử trong giao dịch gốc", f"{raw_occ:,}")
+            c1.metric(
+                "Tổng phần tử trong hồ sơ gốc" if is_clinical else "Tổng phần tử trong giao dịch gốc",
+                f"{raw_occ:,}",
+            )
             c2.metric("Phần tử sau lọc F-List", f"{filtered_occ:,}")
             c3.metric("Số nút trên Cây FP-Tree", f"{tree_nodes:,}")
             c4.metric("Tỷ lệ nén trên FP-Tree", f"{max(0.0, compression_vs_filtered):.1f}%")
@@ -845,7 +861,7 @@ def main() -> None:
                 ctrl_col1, ctrl_col2 = st.columns([1.2, 1.0])
                 with ctrl_col1:
                     num_tree_tx = st.slider(
-                        "Số lượng giao dịch dùng để vẽ cây:",
+                        f"Số lượng {unit_name} dùng để vẽ cây:",
                         min_value=3,
                         max_value=30,
                         value=10,
@@ -857,7 +873,7 @@ def main() -> None:
                         value=True,
                     )
 
-                # Lọc các giao dịch có chứa ít nhất 1 item thuộc Top 8 F-List để vẽ cây trực quan
+                # Lọc các giao dịch/hồ sơ có chứa ít nhất 1 item thuộc Top 8 F-List để vẽ cây trực quan
                 top8_flist = fptree_obj.flist_order[:8]
                 top8_items = set(top8_flist)
                 selected_records = []
@@ -883,7 +899,7 @@ def main() -> None:
                 st.graphviz_chart(mini_dot, width="stretch")
 
             st.divider()
-            st.markdown(f"#### Danh sách {len(selected_records)} giao dịch đã chọn để dựng cây Mini FP-Tree")
+            st.markdown(f"#### Danh sách {len(selected_records)} {unit_name} đã chọn để dựng cây Mini FP-Tree")
             selected_tx_rows = []
             for stt, ((tx_code, orig_items, filt_items), ordered_branch) in enumerate(
                 zip(selected_records, mini_tree.ordered_transactions), start=1
@@ -891,7 +907,7 @@ def main() -> None:
                 selected_tx_rows.append(
                     {
                         "STT": stt,
-                        "Mã Giao Dịch": tx_code,
+                        id_col_name: tx_code,
                         "Items gốc (thuộc Top F-List)": ", ".join(filt_items),
                         "Nhánh chèn vào FP-Tree (Theo thứ tự F-List)": "{null} -> " + " -> ".join(ordered_branch),
                         "Chi tiết Tên trên nhánh": " -> ".join(labels.get(x, x) for x in ordered_branch),
@@ -975,7 +991,7 @@ def main() -> None:
                 )
                 fi_display["Support"] = fi_display["support"].round(4)
                 fi_display = fi_display[["Mã Itemsets", "Tên chi tiết", "length", "count", "Support"]].rename(
-                    columns={"length": "Số phần tử", "count": "Số giao dịch"}
+                    columns={"length": "Số phần tử", "count": unit_count_col}
                 )
                 st.dataframe(fi_display, width="stretch", height=360, hide_index=True)
 
