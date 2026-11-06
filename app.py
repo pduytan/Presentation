@@ -646,9 +646,6 @@ def load_app3_data() -> Dict[str, object]:
 # GIAO DIỆN CHÍNH: SIDEBAR & 4 TABS
 # ==============================================================================
 def main() -> None:
-    st.sidebar.title("Bảng Điều Khiển")
-    st.sidebar.caption("Đồ án CS313 — Khai phá Tập phổ biến & Luật kết hợp với FP-Growth")
-
     app_choice = st.sidebar.radio(
         "Chọn Ứng dụng:",
         options=[
