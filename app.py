@@ -786,10 +786,14 @@ def main() -> None:
     )
 
     # --------------------------------------------------------------------------
-    # TAB 1: CHỈ CHỨA RAW DATA VÀ TOP 10 ITEMS XUẤT HIỆN NHIỀU NHẤT
+    # TAB 1: DỮ LIỆU GIAO DỊCH / HỒ SƠ VÀ TOP 10 ITEMS XUẤT HIỆN NHIỀU NHẤT
     # --------------------------------------------------------------------------
     with tab1:
-        st.subheader("Dữ liệu hồ sơ bệnh nhân (Raw Data)" if is_clinical else "Dữ liệu giao dịch thô (Raw Data)")
+        st.subheader(
+            "Hồ sơ bệnh đồng mắc theo bệnh nhân (Patient Comorbidity Data)"
+            if is_clinical
+            else "Dữ liệu giao dịch theo hóa đơn (Transaction Data)"
+        )
         st.dataframe(raw_df, width="stretch", height=300)
 
         st.divider()
